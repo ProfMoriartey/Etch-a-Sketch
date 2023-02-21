@@ -1,4 +1,5 @@
 let color = "black";
+let click = true;
 
 function populateBoard(size) {
     let board = document.querySelector(".board");
@@ -28,7 +29,9 @@ function changeSize(input) {
 }
 
 function colorSquare() {
-    this.style.backgroundColor = color;
+    if (click) {
+        this.style.backgroundColor = color;
+    }
 }
 
 
@@ -41,3 +44,7 @@ function resetBoard() {
     let squares = board.querySelectorAll("div");
     squares.forEach((div) => div.style.backgroundColor = "white");
 }
+
+document.querySelector(".board").addEventListener('click', () => {
+    click = !click;
+})
