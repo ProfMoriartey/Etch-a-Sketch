@@ -22,9 +22,10 @@ populateBoard(16)
 
 function changeSize(input) {
     if (input >= 2 && input <= 100) {
+        document.querySelector('.error').style.display = 'none';
         populateBoard(input)
     } else {
-        console.log("Too many squares")
+        document.querySelector('.error').style.display = 'flex';
     }
 }
 
@@ -47,4 +48,9 @@ function resetBoard() {
 
 document.querySelector(".board").addEventListener('click', () => {
     click = !click;
+    if (click) {
+        document.querySelector(".mode").textContent = "Mode: Coloring"
+    } else {
+        document.querySelector(".mode").textContent = "Mode: Not Coloring"
+    }
 })
